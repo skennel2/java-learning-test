@@ -3,9 +3,9 @@ package org.almansa.app.JavaPractice.io;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import org.junit.Test;
@@ -16,7 +16,10 @@ public class ReaderTest {
 	public void inputStreamReaderTest() throws IOException {
 		// InputStreamReader는 스트림을 던져주면, 대상을 바이트단위로 읽어온다. 
 		// Reader - InputStreamReader
-		InputStreamReader isr = new InputStreamReader(new FileInputStream(new File("D:\\Temp\\test.txt")));
+	    InputStream fileStream = new FileInputStream(new File("C:\\김길동(750101)-2017년도자료.pdf"));	    
+	    
+		InputStreamReader isr = new InputStreamReader(fileStream);
+		
 		int b = 0;
 		
 		while(b > -1) {
@@ -52,6 +55,8 @@ public class ReaderTest {
 		String s = "";
 	    while ((s = br.readLine()) != null) {
 	    	System.out.println(s);
-	    }	   
+	    }	
+	    
+	    br.close();
 	}
 }
