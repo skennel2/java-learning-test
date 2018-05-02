@@ -71,14 +71,6 @@ public class FileTest {
 		
 		// 이 메소드는 FileFilter라는 함수형 인터페이스를 인자로 받는다.
 		// 람다등을 이용하여 적절한 필터링을 구현할 수 있다.
-		for(File item : file.listFiles(new FileFilter() {
-			
-			@Override
-			public boolean accept(File pathname) {
-				return (pathname.isDirectory());
-			}
-		})) {
-			System.out.println(item);
-		}
+	    file.listFiles((pathName)->(pathName.isDirectory()));
 	}
 }
