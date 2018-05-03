@@ -47,7 +47,6 @@ public class ReaderTest {
 	
 	@Test
 	public void bufferdReadertest() throws IOException {
-		
 		// Reader - BufferedReader
 		// Reader - InputStreamReader, FileReader
 		BufferedReader br = new BufferedReader(new FileReader(new File("D:\\Temp\\test.txt")));
