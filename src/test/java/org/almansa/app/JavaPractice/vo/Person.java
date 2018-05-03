@@ -4,6 +4,9 @@ public class Person {
     private String name;
     private Integer age;
 
+    public Person() {
+    }
+    
     public Person(String name, Integer age) {
         super();
         this.name = name;
@@ -26,4 +29,8 @@ public class Person {
         this.age = age;
     }
 
+    @Override
+    public String toString() {
+        return "Person [name=" + name + ", age=" + age + "]";
+    }
 }
