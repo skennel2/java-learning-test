@@ -50,9 +50,8 @@ public class FileTest {
         System.out.println(abstractDir.getAbsolutePath()); // 추상경로 가져오기
         System.out.println(abstractDir.getTotalSpace()); // 경로의 파티션의 총공간 가져요기_ 경로이건 파일이건 같은 파티션이면 같은 사이즈를 리턴
         System.out.println(abstractDir.getFreeSpace()); // 경로의 파티션의 여유공간가져오기
-        // System.out.println(abstractDir.getParent()); // 부모경로가져오기 (바로 상위 경로 리턴)
-        // System.out.println(abstractDir.getParentFile().getPath()); // 부로경로 File 인스턴스로
-        // 가져오기
+        System.out.println(abstractDir.getParent()); // 부모경로가져오기 (바로 상위 경로 리턴)
+        System.out.println(abstractDir.getParentFile().getPath()); // 부로경로 File 인스턴스로 가져오기
     }
 
     @Test

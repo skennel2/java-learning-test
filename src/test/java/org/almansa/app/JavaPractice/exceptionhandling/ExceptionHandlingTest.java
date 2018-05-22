@@ -4,20 +4,20 @@ import org.junit.Test;
 
 public class ExceptionHandlingTest {
 
-    private ExceptionClient service = new ExceptionClient();
+    private ExceptionService service = new ExceptionService();
 
     @Test
     public void test() {
-        service.test();
+        service.raiseExceptionAndDoAnything();
     }
 
     @Test
     public void test2() {
-        service.test2();
+        service.raiseExceptionAndThrow();
     }
 
     @Test
     public void test3() {
-        service.test3();
+        service.raiseUnExpectedException();
     }
 }

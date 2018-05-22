@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import org.almansa.app.JavaPractice.vo.Person;
+import org.almansa.app.JavaPractice.jackson.Person;
 import org.junit.Test;
 
 public class StreamApiTest {
@@ -26,7 +26,11 @@ public class StreamApiTest {
 
         String searchName = "nys2";
 
-        persons.stream().distinct().filter((p) -> p.getName().equals(searchName)).findFirst().ifPresent((p) -> {
+        persons.stream()
+        .distinct()
+        .filter((p) -> p.getName().equals(searchName))
+        .findFirst()
+        .ifPresent((p) -> {
             System.out.println(p.getName());
         });
 
@@ -34,12 +38,17 @@ public class StreamApiTest {
         // 스트림의 모든 요소가 다음조건을 만족하는가 ?
         boolean result = persons.stream().allMatch((p) -> p.getAge() > 30);
 
-        persons.stream().filter((p) -> p.getAge() > 30).findAny().ifPresent((p) -> {
+        persons.stream()
+        .filter((p) -> p.getAge() > 30)
+        .findAny()
+        .ifPresent((p) -> {
             System.out.println(p.getName());
         });
 
         // Map 연산
-        persons.stream().map((p) -> p.getAge()).forEach((a) -> System.out.print(a.toString() + ", "));
+        persons.stream()
+        .map((p) -> p.getAge())
+        .forEach((a) -> System.out.print(a.toString() + ", "));
     }
 
     @Test

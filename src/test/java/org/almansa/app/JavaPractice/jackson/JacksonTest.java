@@ -2,7 +2,6 @@ package org.almansa.app.JavaPractice.jackson;
 
 import java.io.IOException;
 
-import org.almansa.app.JavaPractice.vo.Person;
 import org.junit.Test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -1,4 +1,4 @@
-package org.almansa.app.JavaPractice.vo;
+package org.almansa.app.JavaPractice.jackson;
 
 public class Person {
     private String name;
