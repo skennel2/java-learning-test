@@ -1,6 +1,6 @@
 package org.almansa.app.JavaPractice.stream;
 
 @FunctionalInterface
-public interface TextFormatter{
+public interface TextFormatter {
     String format(String source);
 }

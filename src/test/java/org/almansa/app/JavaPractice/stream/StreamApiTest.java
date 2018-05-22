@@ -37,8 +37,8 @@ public class StreamApiTest {
         persons.stream().filter((p) -> p.getAge() > 30).findAny().ifPresent((p) -> {
             System.out.println(p.getName());
         });
-        
-        // Map 연산 
+
+        // Map 연산
         persons.stream().map((p) -> p.getAge()).forEach((a) -> System.out.print(a.toString() + ", "));
     }
 
@@ -111,9 +111,9 @@ public class StreamApiTest {
         Optional<String> optional = list.stream().findAny();
         Optional<String> optional2 = list.stream().findAny();
     }
-    
+
     @Test
     public void streamReduceOperation() {
-        
+
     }
 }
