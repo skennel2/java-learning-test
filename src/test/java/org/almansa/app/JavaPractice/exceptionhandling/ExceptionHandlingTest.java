@@ -7,17 +7,17 @@ public class ExceptionHandlingTest {
     private ExceptionService service = new ExceptionService();
 
     @Test
-    public void test() {
+    public void testRaiseExceptionAndDoAnything() {
         service.raiseExceptionAndDoAnything();
     }
 
     @Test
-    public void test2() {
+    public void testRaiseExceptionAndThrow() {
         service.raiseExceptionAndThrow();
     }
 
     @Test
-    public void test3() {
+    public void testRaiseUnExpectedException() {
         service.raiseUnExpectedException();
     }
 }
