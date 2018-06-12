@@ -1,4 +1,4 @@
-package org.almansa.app.JavaPractice.io;
+package org.almansa.app.java.io;
 
 import java.io.File;
 import java.io.FileInputStream;

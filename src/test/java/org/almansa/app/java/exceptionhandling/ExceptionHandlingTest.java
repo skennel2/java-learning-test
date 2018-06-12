@@ -1,4 +1,4 @@
-package org.almansa.app.JavaPractice.exceptionhandling;
+package org.almansa.app.java.exceptionhandling;
 
 import org.junit.Test;
 

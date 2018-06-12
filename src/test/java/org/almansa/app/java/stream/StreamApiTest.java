@@ -1,4 +1,6 @@
-package org.almansa.app.JavaPractice.stream;
+package org.almansa.app.java.stream;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,7 +12,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import org.almansa.app.JavaPractice.jackson.Person;
+import org.almansa.app.java.jackson.Person;
 import org.junit.Test;
 
 public class StreamApiTest {
@@ -54,6 +56,9 @@ public class StreamApiTest {
     @Test
     public void emptyStream() {
         Stream<String> stringStream = Stream.empty();
+        
+        long count = stringStream.count();
+        assertEquals(0, count);
     }
 
     @Test
@@ -105,11 +110,11 @@ public class StreamApiTest {
     @Test(expected = IllegalStateException.class)
     public void streamReferenceReUseProblem() {
         Stream<String> stream = Stream.of("acb", "bcd", "cde").filter((str) -> str.contains("b"));
+        
         Optional<String> optional = stream.findAny();
-
-        // IllegalStateException 발생 , 같은 스트림의 재사용은 주의해야한다.
-        // TODO 근데 왜일까..?
         Optional<String> optional2 = stream.findAny();
+        // IllegalStateException 발생 , 같은 스트림의 재사용은 주의해야한다.
+        // TODO 근데 왜일까..?        
     }
 
     @Test

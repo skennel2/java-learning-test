@@ -1,4 +1,4 @@
-package org.almansa.app.JavaPractice.io;
+package org.almansa.app.java.io;
 
 import java.io.BufferedReader;
 import java.io.File;

@@ -1,4 +1,4 @@
-package org.almansa.app.JavaPractice.string;
+package org.almansa.app.java.string;
 
 import java.util.StringTokenizer;
 

@@ -1,4 +1,4 @@
-package org.almansa.app.JavaPractice.string;
+package org.almansa.app.java.string;
 
 import static org.junit.Assert.assertEquals;
 
@@ -23,15 +23,15 @@ public class StringTest {
     
     @Test
     public void testStringIsImmutable() {
-        String string = "1234";
-        String concat = string.concat("5678");
+        String strLiteral1 = "1234";
+        String concat = strLiteral1.concat("5678");
         
         // String의 concat은 실제 인스턴스를 변경하는 것이 아닌 새로운 인스턴스를 반환한다.
         // 이것은 String의 모든 메소드들이 공유하는 메커니즘으로 이러한 특성을 Immutable이라고한다.
-        assertEquals(concat, "12345678");
+        assertEquals(true, "12345678".equals(concat));
         
-        String string2 = "12345";
-        String concat2 = string2.concat("67890");
+        String strLiteral2 = "12345";
+        String concat2 = strLiteral2.concat("67890");
         
         // concat으로 리턴되는 스트링은 리터럴이 아니다. 그냥 새로운 인스턴스를 생성해서 리턴하는 것이다. 
         assertEquals(false, concat2 == "1234567890");

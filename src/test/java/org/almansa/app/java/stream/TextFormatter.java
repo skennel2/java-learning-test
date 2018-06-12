@@ -1,4 +1,4 @@
-package org.almansa.app.JavaPractice.stream;
+package org.almansa.app.java.stream;
 
 @FunctionalInterface
 public interface TextFormatter {

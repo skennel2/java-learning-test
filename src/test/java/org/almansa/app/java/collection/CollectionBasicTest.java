@@ -1,4 +1,4 @@
-package org.almansa.app.JavaPractice.collection;
+package org.almansa.app.java.collection;
 
 import java.util.Vector;
 
