@@ -91,14 +91,14 @@ public class StreamApiTest {
         // iterate는 무한 스트림을 생성한다.
         Stream<Integer> stream = Stream.iterate(10, n -> n + 1).limit(10);
 
-        stream.forEach((n) -> {
-            System.out.println(n);
-        });
+        assertEquals(10, stream.count());
     }
 
     @Test
     public void streamForPrimitive() {
-        IntStream intStream = IntStream.range(0, 100);
+        IntStream intStream = IntStream.range(0, 10); // 0 ~ 9
+        
+        assertEquals(45, intStream.sum());
 
     }
 
