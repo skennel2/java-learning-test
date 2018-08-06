@@ -16,9 +16,12 @@ public class StringTest {
         
         assertEquals(false, strInstance == strLiteral1);
         assertEquals(true, strInstance.equals(strLiteral1));
-        // 스프링 리터럴은 JVM 내의 스트링 리터럴 테이블 내의 인스턴스를 공유한다. 
-        // 그러므로 아래 테스트는 통과한다. 
+
+        // equals은 값비교이므로 아래 테스트는 통과한다.   
         assertEquals(true, strLiteral2.equals(strLiteral1)); 
+        // 스프링 리터럴은 JVM 내의 스트링 리터럴 테이블 내의 인스턴스를 공유한다. 
+        // 그러므로 아래 테스트는 통과한다.         
+        assertEquals(true, strLiteral2 == strLiteral1);
     }
     
     @Test
