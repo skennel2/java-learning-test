@@ -1,4 +1,4 @@
-package org.almansa.app.java.lamda;
+package org.almansa.app.java.lambda;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -14,7 +14,10 @@ public class UsingOuterVariableTest {
         Predicate<String> isIgnoreCaseEquals = (a)-> a.equalsIgnoreCase(fruit);
         
         // 아래 구문의 주석을 풀면 컴파일에러 
+        // 람다의 바디에서 사용되는 외부 변수는 변경될 수 없다.
+        
         // fruit = "apple";
+        
         boolean isEqual = isIgnoreCaseEquals.test("banana");
         assertEquals(true, isEqual); 
     }

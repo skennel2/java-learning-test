@@ -16,7 +16,7 @@ import com.fasterxml.jackson.databind.ObjectReader;
  */
 public class JacksonTest {
     @Test
-    public void simpleJsonSerializeAndDeserialize() throws IOException {
+    public void Json으로_객체직렬화_역직렬화() throws IOException {
         Person person = new Person("e40", 43);
 
         // Object를 Json String으로 직렬화
@@ -33,8 +33,7 @@ public class JacksonTest {
     }
     
     @Test
-    public void test() {
-        //Person person = new Person("Na yun su", 31);
+    public void Json역직렬화() {
         String json = "{\"name\":\"Bob\", \"age\":13}";
         
         ObjectMapper mapper = new ObjectMapper();
