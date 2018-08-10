@@ -31,9 +31,8 @@ public class CollectionTest {
     @Test
     public void Collection_인터페이스의_같은_String_instance처리() {
         String item = "item";
+        
         Collection<String> collection = new ArrayList<>();
-        assertEquals(true, collection.isEmpty());
-
         collection.add(item);
         collection.add(item);
 
