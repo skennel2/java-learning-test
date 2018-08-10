@@ -9,7 +9,7 @@ public class Fruit {
 	}
 	
 	public Fruit(String name) {
-		this.name = name;
+		super();
 	}
 
 	public Fruit(String name, Long price) {

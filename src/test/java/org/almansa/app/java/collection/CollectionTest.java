@@ -14,7 +14,7 @@ import org.junit.Test;
 
 public class CollectionTest {
     @Test
-    public void 컬렉션의박싱과언박싱() {
+    public void 컬렉션의박싱과_언박싱() {
         Vector vector = new Vector();
         // 벡터에 기본 타입을 아이템으로 추가한다.
         // 원칙적으로 자바의 모든 컬렉션은 Object만을 item으로 가진다.
@@ -29,7 +29,7 @@ public class CollectionTest {
     }
 
     @Test
-    public void Collection인터페이스의_같은_String_instance처리() {
+    public void Collection_인터페이스의_같은_String_instance처리() {
         String item = "item";
         Collection<String> collection = new ArrayList<>();
         assertEquals(true, collection.isEmpty());

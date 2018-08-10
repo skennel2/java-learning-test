@@ -9,7 +9,7 @@ public class StringTest {
      * 스트링 리터럴과 인스턴스의 비교 
      */
     @Test
-    public void testStringliteralAndInstance() {
+    public void String리터럴과_인스턴스() {
         String strInstance = new String("1234");
         String strLiteral1 = "1234";
         String strLiteral2 = "1234";
@@ -19,6 +19,7 @@ public class StringTest {
 
         // equals은 값비교이므로 아래 테스트는 통과한다.   
         assertEquals(true, strLiteral2.equals(strLiteral1)); 
+        
         // 스프링 리터럴은 JVM 내의 스트링 리터럴 테이블 내의 인스턴스를 공유한다. 
         // 그러므로 아래 테스트는 통과한다.         
         assertEquals(true, strLiteral2 == strLiteral1);
