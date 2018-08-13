@@ -3,11 +3,12 @@ package org.almansa.app.java.lambda;
 public class Fruit {
 	private String name;
 	private Long price;
+	private Boolean isOrganic;
 
 	public Fruit() {
 		super();
 	}
-	
+
 	public Fruit(String name) {
 		super();
 	}
@@ -33,11 +34,19 @@ public class Fruit {
 		this.price = price;
 	}
 
+	public Boolean getIsOrganic() {
+		return isOrganic;
+	}
+
+	public void setIsOrganic(Boolean isOrganic) {
+		this.isOrganic = isOrganic;
+	}
+
 	@Override
 	public String toString() {
 		return "Fruit [name=" + name + ", price=" + price + ", getName()=" + getName() + ", getPrice()=" + getPrice()
 				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
 				+ "]";
 	}
-	
+
 }
