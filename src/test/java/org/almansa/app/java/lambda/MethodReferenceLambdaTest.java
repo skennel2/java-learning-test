@@ -17,4 +17,5 @@ public class MethodReferenceLambdaTest {
 		
 		assertEquals(true, isOrganic.test(banana));
 	}
+
 }
