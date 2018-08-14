@@ -163,6 +163,6 @@ public class StreamApiTest {
         Optional<String> optional = list.stream().findAny();
         Optional<String> optional2 = list.stream().findAny();
          
-       
+
     }
 }
