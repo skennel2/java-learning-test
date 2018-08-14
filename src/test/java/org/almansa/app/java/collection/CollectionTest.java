@@ -29,6 +29,43 @@ public class CollectionTest {
     }
 
     @Test
+    public void Collection의_슈퍼타입() {
+    	Collection<String> collection = new ArrayList<>();
+    	collection.add("Hello"); // 요소추가
+    	collection.add("World"); // 요소추가
+    	
+    	// Iterable -> Collection
+    	Iterable<String> iterable = collection;
+    	
+    	Iterator<String> iterator = iterable.iterator();
+    	String next = iterator.next();
+    	
+    	assertEquals("Hello", next);
+    }
+    
+    @Test
+    public void Collection의_메소드() {
+    	Collection<String> collection = new ArrayList<>();
+    	collection.add("Hello"); // 요소추가
+    	collection.remove("Hello"); // 요소제거
+    	
+    	assertEquals(0, collection.size());
+    }
+    
+    @Test
+    public void Collection의_메소드_removeIf() {
+    	Collection<String> collection = new ArrayList<>();
+    	collection.add("Hello"); 
+    	collection.add("World");
+    	collection.add("Hello~!");
+    	collection.add("World~!");
+    	
+    	collection.removeIf((String value)-> value.length() > 5);
+    	
+    	assertEquals(2, collection.size());
+    }
+    
+    @Test
     public void Collection_인터페이스의_같은_String_instance처리() {
         String item = "item";
         
