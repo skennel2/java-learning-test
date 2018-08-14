@@ -48,7 +48,6 @@ public class CollectionTest {
     	Collection<String> collection = new ArrayList<>();
     	collection.add("Hello"); // 요소추가
     	collection.remove("Hello"); // 요소제거
-    	
     	assertEquals(0, collection.size());
     }
     

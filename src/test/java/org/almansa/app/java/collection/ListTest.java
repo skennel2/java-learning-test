@@ -24,4 +24,15 @@ public class ListTest {
         assertEquals(true, vector instanceof List);
         assertEquals(true, arrayList instanceof List);
     }   
+    
+    @Test
+    public void List인터페이스의_메소드() {
+    	List<String> arrayList = new ArrayList<>();
+    	arrayList.add("Hello");
+    	
+    	// List의 get 메소드
+    	String getValue = arrayList.get(0);
+    	
+    	assertEquals("Hello", getValue);
+    }
 }
