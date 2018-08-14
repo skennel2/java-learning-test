@@ -1,5 +1,7 @@
 package org.almansa.app.java.collection;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -16,5 +18,10 @@ public class ListTest {
         List<String> stack = new Stack<>();
         List<String> vector = new Vector<>();
         List<String> arrayList = new ArrayList<>();
+        
+        assertEquals(true, linkedList instanceof List);
+        assertEquals(true, stack instanceof List);
+        assertEquals(true, vector instanceof List);
+        assertEquals(true, arrayList instanceof List);
     }   
 }
