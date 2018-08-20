@@ -19,4 +19,12 @@ public class StreamCollectTest {
                                               .collect(Collectors.toList());
         assertEquals(2, fiveCharacterFruit.size());
     }
+    
+    @Test
+    public void 내장_Collector_averagingInt() {
+        List<String> list = Arrays.asList("apple", "banana", "grape", "pair");
+        
+        Double fiveCharacterFruit = list.stream().collect(Collectors.averagingInt(p->p.length()));
+        assertEquals(new Double(5), fiveCharacterFruit);
+    }
 }
