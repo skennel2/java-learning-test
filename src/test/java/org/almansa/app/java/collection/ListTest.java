@@ -73,7 +73,25 @@ public class ListTest {
     	RandomAccess arrayList = new ArrayList<>();
     }
     
-    public void 속도확인() {
+    @Test
+    public void LinkedList_속도확인() {
+    	LinkedList<String> linkedList = new LinkedList<>();
     	
+    	for (int i = 0; i < 100000; i++) {
+    		linkedList.add(new Integer(i).toString());
+		}
+    	
+    	linkedList.get(99999);
+    }    
+    
+    @Test
+    public void ArrayList_속도확인() {
+    	ArrayList<String> arrayList = new ArrayList<>();
+    	
+    	for (int i = 0; i < 100000; i++) {
+			arrayList.add(new Integer(i).toString());
+		}
+    	
+    	arrayList.get(99999);
     }
 }
