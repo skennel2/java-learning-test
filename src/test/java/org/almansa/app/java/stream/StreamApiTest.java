@@ -24,12 +24,9 @@ public class StreamApiTest {
 
         return persons;
 	}
-	
-	/**
-	 * List<Person> 타입에 대해 스트림 다뤄보기
-	 */
+
     @Test
-    public void handleStream() {
+    public void 스트림_다루기() {
         List<Person> persons = getPersonList();
         
         //Consumer 매개변수 값을 소비할 뿐 리턴하지 않는다. C#으로 치면 Action
@@ -50,46 +47,36 @@ public class StreamApiTest {
         
         assertEquals(false, isAllAgeOver30);
 
-        persons.stream()
-        .filter((p) -> p.getAge() > 30)
-        .findAny()
-        .ifPresent((p) -> {
-            System.out.println(p.getName());
-        });
+        persons.stream().filter((p) -> p.getAge() > 30)
+                        .findAny()
+                        .ifPresent((p) -> {
+                            System.out.println(p.getName());
+                        });
 
         // Map 연산 순회하며 본 타입을 특정타입으로 바꾼다. 
         persons.stream()
-        .map((p) -> p.getAge())
-        .forEach((a) -> System.out.print(a.toString() + ", "));
+               .map((p) -> p.getAge())
+               .forEach((a) -> System.out.print(a.toString() + ", "));
     }
 
-    /**
-     * 빈 스트림만들기
-     */
     @Test
-    public void emptyStream() {
+    public void 빈스트림생성() {
         Stream<String> stringStream = Stream.empty();
         
         long count = stringStream.count();
         assertEquals(0, count);
     }
 
-    /**
-     * Stream.of 메소드로 스트림 만들기
-     */
     @Test
-    public void StreamOfArray() {
+    public void of메소드로_스트림생성() {
         Stream<String> stream = Stream.of("asdf", "sadf", "sadf");
         long count = stream.count();
         
         assertEquals(3, count);
     }
 
-    /**
-     * asList로  Collection 객체 만들기
-     */
     @Test
-    public void StreamOfCollection() {
+    public void asList로_콜렉션객체생성() {
         Collection<String> collectionForString = Arrays.asList("11", "22", "33", "44");
         long stringCollectionSize = collectionForString.size();
         assertEquals(4, stringCollectionSize);
@@ -100,69 +87,63 @@ public class StreamApiTest {
     }
 
     @Test
-    public void StreamBuilder() {
+    public void 스트림빌더() {
         Stream<String> stream = Stream.<String>builder().add("a").add("b").add("c").build();
+        
+        assertEquals(3, stream.count());
     }
 
     @Test
-    public void streamGenegater() {
-        // The generate() method accepts a Supplier<T> for element generation.
-        // As the resulting stream is infinite, developer should specify the desired
-        // size
-        // or the generate() method will work until it reaches the memory limit:
-
-        Stream<String> stream = Stream.generate(() -> "123456789");
+    public void generate로_무한스트림생성(){
+        Stream<String> stream = Stream.generate(() -> "123456789").limit(5);
+        
+        assertEquals(5, stream.count());
     }
 
     @Test
-    public void streamIterate() {
+    public void iterate로_스트림생성() {
         // iterate는 무한 스트림을 생성한다.
         Stream<Integer> stream = Stream.iterate(10, n -> n + 1);
 
         assertEquals(10, stream.count());
     }
 
-    /**
-     * 기본자료형에 대한 스트림생성 
-     */
     @Test
-    public void streamForPrimitive() {
+    public void 기본자료형스트림생성() {
         IntStream intStream = IntStream.range(0, 10); // 0 ~ 9
         
         assertEquals(45, intStream.sum());
 
     }
 
-    /**
-     * String 타입에 대한 스트림 생성
-     */
     @Test
-    public void streamOfString() {
+    public void 패턴으로_String에서_스트림생성() {
         Stream<String> stream = Pattern.compile(",").splitAsStream("a,b,c");
+        
+        assertEquals(3, stream.count());
     }
 
     /**
      * 하나의 스트림에 대해 여러번의 집계 작업을 수행하면 IllegalStateException예외를 던진다.
      */
     @Test(expected = IllegalStateException.class)
-    public void streamReferenceReUseProblem() {
+    public void 스트림_재사용의_문제() {
         Stream<String> stream = Stream.of("acb", "bcd", "cde").filter((str) -> str.contains("b"));
         
         Optional<String> optional = stream.findAny();
-        Optional<String> optional2 = stream.findAny();
+        
         // IllegalStateException 발생 , 같은 스트림의 재사용은 주의해야한다.
         // TODO 근데 왜일까..?        
+        Optional<String> optional2 = stream.findAny();
     }
 
     @Test
-    public void streamReferenceReUseProblemSolve() {
+    public void 스트림_재사용의_문제의_해결() {
         List<String> list = Stream.of("acb", "bcd", "cde")
         		                  .filter((str) -> str.contains("b"))
                                   .collect(Collectors.toList());
 
         Optional<String> optional = list.stream().findAny();
         Optional<String> optional2 = list.stream().findAny();
-         
-
     }
 }
