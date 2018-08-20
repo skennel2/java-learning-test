@@ -57,12 +57,12 @@ public class ListTest {
     @Test
     public void ArrayList의_슈퍼타입(){
     	ArrayList<String> arrayList = new ArrayList<>();
-    	
+
     	assertEquals(true, arrayList instanceof AbstractList);
-    	assertEquals(true, arrayList instanceof RandomAccess);
-    	assertEquals(true, arrayList instanceof List);
-    	assertEquals(true, arrayList instanceof AbstractCollection);
-    	assertEquals(true, arrayList instanceof Collection);
+    	assertEquals(true, arrayList instanceof RandomAccess); // AbstractList 에서 구현 
+    	assertEquals(true, arrayList instanceof List); // AbstractList에서 구현
+    	assertEquals(true, arrayList instanceof AbstractCollection); //AbstractList에서 상속
+    	assertEquals(true, arrayList instanceof Collection); // AbstractCollection에서 구현
     }    
     
     @Test
