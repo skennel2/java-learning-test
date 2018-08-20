@@ -12,6 +12,7 @@ import org.junit.Test;
 public class FunctionalInterface {
 	@Test
 	public void Predicate타입_함수형인터페이스() {
+		// 하나의 제네릭을 받아 boolean을 리턴하는 함수
 		Predicate<String> isLengthFour = (String str) ->{
 			return str.length() == 4;
 		};
@@ -22,6 +23,7 @@ public class FunctionalInterface {
 	
 	@Test
 	public void Consumer타입_함수형인터페이스() {
+		// 하나의 제네릭을 받아 void 리턴인 함수
 		Consumer<String> stringPrinter = (String str) ->{
 			System.out.println(str);
 		};
@@ -32,6 +34,7 @@ public class FunctionalInterface {
 	
 	@Test
 	public void Supplier타입_함수형인터페이스() {
+		// 하나의 제네릭을 받아 받은 제네릭타입 리턴인 함수
 		Supplier<String> bananaMaker = () ->{
 			return "Banana";
 		};
@@ -43,6 +46,7 @@ public class FunctionalInterface {
 	
 	@Test
 	public void Functional타입_함수형인터페이스() {
+		// 두개의 제네릭을 받아 첫번째 타입을 인수로 받고, 두번째타입을 리턴하는 함수
 		Function<String, Integer> lengthGetter = (String value)->{
 			return value.length();
 		};
