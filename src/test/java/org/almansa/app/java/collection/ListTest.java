@@ -30,9 +30,21 @@ public class ListTest {
     	List<String> arrayList = new ArrayList<>();
     	arrayList.add("Hello");
     	
-    	// List의 get 메소드
+    	// List의 get 메소드, 인덱스로 접근한다.
     	String getValue = arrayList.get(0);
     	
     	assertEquals("Hello", getValue);
     }
+    
+    @Test
+    public void List는_중복을_허용한다() {
+    	// 자바 Collection API에 중복을 허용하지 않는 List 구현체는 따로 제공해주지 않는것 같다.
+    	String value = new String("Hi");
+    	
+    	List<String> arrayList = new ArrayList<>();
+    	arrayList.add(value);
+    	arrayList.add(value);
+
+    	assertEquals(2, arrayList.size());
+    }  
 }
