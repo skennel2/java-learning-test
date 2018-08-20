@@ -30,54 +30,54 @@ public class CollectionTest {
 
     @Test
     public void Collection의_슈퍼타입() {
-    	Collection<String> collection = new ArrayList<>();
-    	collection.add("Hello"); // 요소추가
-    	collection.add("World"); // 요소추가
-    	
-    	// Iterable -> Collection
-    	Iterable<String> iterable = collection;
-    	
-    	Iterator<String> iterator = iterable.iterator();
-    	String next = iterator.next();
-    	
-    	assertEquals("Hello", next);
+        Collection<String> collection = new ArrayList<>();
+        collection.add("Hello"); // 요소추가
+        collection.add("World"); // 요소추가
+
+        // Iterable -> Collection
+        Iterable<String> iterable = collection;
+
+        Iterator<String> iterator = iterable.iterator();
+        String next = iterator.next();
+
+        assertEquals("Hello", next);
     }
-    
+
     @Test
     public void Collection의_메소드() {
-    	Collection<String> collection = new ArrayList<>();
-    	collection.add("Hello"); // 요소추가
-    	collection.remove("Hello"); // 요소제거
-    	assertEquals(0, collection.size());
+        Collection<String> collection = new ArrayList<>();
+        collection.add("Hello"); // 요소추가
+        collection.remove("Hello"); // 요소제거
+        assertEquals(0, collection.size());
     }
-    
+
     @Test
     public void Collection의_메소드_removeIf() {
-    	Collection<String> collection = new ArrayList<>();
-    	collection.add("Hello"); 
-    	collection.add("World");
-    	collection.add("Hello~!");
-    	collection.add("World~!");
-    	
-    	collection.removeIf((String value)-> value.length() > 5);
-    	
-    	assertEquals(2, collection.size());
+        Collection<String> collection = new ArrayList<>();
+        collection.add("Hello");
+        collection.add("World");
+        collection.add("Hello~!");
+        collection.add("World~!");
+
+        collection.removeIf((String value) -> value.length() > 5);
+
+        assertEquals(2, collection.size());
     }
-    
+
     @Test
     public void Collection_인터페이스의_같은_String_instance처리() {
         String item = "item";
-        
+
         Collection<String> collection = new ArrayList<>();
         collection.add(item);
         collection.add(item);
 
         assertEquals(true, collection.contains("item"));
         assertEquals(2, collection.size());
-        
+
         String next1 = collection.iterator().next();
         String next2 = collection.iterator().next();
-        
+
         assertEquals(true, next1 == next2);
     }
 
@@ -88,20 +88,20 @@ public class CollectionTest {
         assertEquals(true, collection.isEmpty());
 
         // 아래 둘은 정확히 같은 주소값을 가지고 있을 것이다.
-        collection.add(item); 
+        collection.add(item);
         collection.add(item);
 
         assertEquals(true, collection.contains(item));
         assertEquals(2, collection.size());
 
-        item.setValue(3);   
-        
+        item.setValue(3);
+
         // 당연하지만 참조무결하지 않다.
         for (Iterator<Foo> iterator = collection.iterator(); iterator.hasNext();) {
-            Foo foo = (Foo) iterator.next();                        
-            
+            Foo foo = (Foo) iterator.next();
+
             assertEquals(true, item == foo);
-            assertEquals(3, foo.getValue()); 
+            assertEquals(3, foo.getValue());
         }
     }
 
@@ -118,7 +118,7 @@ public class CollectionTest {
             Foo foo = (Foo) iterator.next();
             foo.setValue(3);
         }
-        
+
         for (Iterator<Foo> iterator = collection.iterator(); iterator.hasNext();) {
             Foo foo = (Foo) iterator.next();
             assertEquals(3, foo.getValue());
