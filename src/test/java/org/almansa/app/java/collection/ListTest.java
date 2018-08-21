@@ -55,6 +55,37 @@ public class ListTest {
     }
 
     @Test
+    public void ArrayList의_ensureCapacity() {
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("apple");
+        arrayList.add("banana");
+        arrayList.trimToSize();
+        assertEquals(2, arrayList.size()); 
+        
+        // ArrayList 의 인스턴스의 사이즈를 확대한다.
+        // 내부 버퍼의 사이즈를 증가시킬뿐, 리스트의 논리적 크기를 증가시키지는 않는다. 
+        arrayList.ensureCapacity(5);
+
+        assertEquals(2, arrayList.size());         
+    }
+    
+    @Test
+    public void Vector의_trimToSize() {
+        Vector<String> vector = new Vector<>();
+        vector.add("111");
+        vector.add("222");
+        vector.add("222");
+        
+        // 생성자로 기본 크기를 지정해주지 않으면 10의 수용량을 가지는 것을 알 수 있다.
+        assertEquals(10, vector.capacity()); 
+        
+        vector.trimToSize();
+
+        // trimToSize로 수용량과 실제 크기를 동일하게 맞춰준다.
+        assertEquals(3, vector.capacity());
+    }
+    
+    @Test
     public void ArrayList의_슈퍼타입() {
         ArrayList<String> arrayList = new ArrayList<>();
 
@@ -75,7 +106,28 @@ public class ListTest {
     }
 
     @Test
-    public void LinkedList_속도확인() {
+    public void ArrayList의_초기사이즈를_지정해주었을때_속도비교() {
+        ArrayList<String> arrayList = new ArrayList<>(1000000);
+        
+        for (int i = 0; i < 1000000; i++) {
+            arrayList.add(new Integer(i).toString());
+        }
+        
+        assertEquals(1000000, arrayList.size());
+    }
+    
+    @Test
+    public void ArrayList에_초기사이즈를_지정하지않았을때_속도비교() {
+        ArrayList<String> arrayList = new ArrayList<>();
+        for (int i = 0; i < 1000000; i++) {
+            arrayList.add(new Integer(i).toString());
+        }    
+        
+        assertEquals(1000000, arrayList.size());
+    }    
+    
+    @Test
+    public void LinkedList_속도비교() {
         LinkedList<String> linkedList = new LinkedList<>();
 
         for (int i = 0; i < 100000; i++) {
@@ -86,7 +138,7 @@ public class ListTest {
     }
 
     @Test
-    public void ArrayList_속도확인() {
+    public void ArrayList_속도비교() {
         ArrayList<String> arrayList = new ArrayList<>();
 
         for (int i = 0; i < 100000; i++) {
