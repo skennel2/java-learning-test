@@ -2,11 +2,9 @@ package org.almansa.app.java.stream.reduce;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.OptionalInt;
 
 import org.junit.Test;
 
@@ -18,7 +16,8 @@ public class ReduceTest {
         List<String> list = Arrays.asList("apple", "banana", "grape", "pair", "cherry");
 
         Integer lengthFiveSum = list.stream().filter(f -> f.length() == 5)
-                                             .map((p) -> p.length()).reduce(0, (a, b) -> a + b); // 0으로 초기값 부여
+                .map((p) -> p.length())
+                .reduce(0, (a, b) -> a + b); // 0으로 초기값 부여
 
         assertEquals(new Integer(10), lengthFiveSum);
     }
@@ -28,8 +27,8 @@ public class ReduceTest {
         List<String> list = Arrays.asList("apple", "banana", "grape", "pair", "cherry");
 
         Optional<Integer> lengthFiveSum = list.stream().filter(f -> f.length() == 5)
-                                                       .map((p) -> p.length())
-                                                       .reduce((a, b) -> a + b); // 초기값을 부여하지 않으면, 요소가 아예 없을수도 있으니 Optional로 리턴한다.
+                .map((p) -> p.length())
+                .reduce((a, b) -> a + b); // 초기값을 부여하지 않으면, 요소가 아예 없을수도 있으니 Optional로 리턴한다.
 
         assertEquals(new Integer(10), lengthFiveSum.get());
     }
@@ -50,4 +49,19 @@ public class ReduceTest {
         assertEquals(150, vegetarianMenuCalories);
     }
     
+    @Test
+    public void map_reduce패턴() {
+        List<Dish> list = Arrays.asList(
+                new Dish("salad", 100, true), 
+                new Dish("cherry", 50, true),
+                new Dish("chicken", 1200, false),
+                new Dish("tomato pasta", 450, false));
+
+        int vegetarianCount = list.stream()
+                .filter(Dish::isVegetarian)
+                .map((p)-> 1)
+                .reduce(0, Integer::sum); // map, reduce 조합으로  count 구현
+
+        assertEquals(2, vegetarianCount);
+    }    
 }
