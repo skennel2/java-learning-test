@@ -10,6 +10,8 @@ import java.util.Vector;
 
 import org.junit.Test;
 
+import testobject.Foo;
+
 public class CollectionTest {
     @Test
     public void 컬렉션의박싱과_언박싱() {

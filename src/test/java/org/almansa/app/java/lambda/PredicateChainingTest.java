@@ -6,6 +6,8 @@ import java.util.function.Predicate;
 
 import org.junit.Test;
 
+import testobject.Fruit;
+
 public class PredicateChainingTest {
     @Test
     public void Predicate_연결하기() {

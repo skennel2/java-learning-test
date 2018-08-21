@@ -1,4 +1,4 @@
-package org.almansa.app.java.stream.reduce;
+package testobject;
 
 public class Dish {
     private String name;

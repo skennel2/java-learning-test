@@ -13,8 +13,9 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import org.almansa.app.java.jackson.Person;
 import org.junit.Test;
+
+import testobject.Person;
 
 public class StreamApiTest {
 

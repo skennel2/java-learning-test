@@ -1,4 +1,4 @@
-package org.almansa.app.java.collection;
+package testobject;
 
 public class Foo {
     private int value;

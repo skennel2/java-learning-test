@@ -1,4 +1,4 @@
-package org.almansa.app.java.jackson;
+package testobject;
 
 public class Person {
     private String name;

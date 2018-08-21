@@ -1,4 +1,4 @@
-package org.almansa.app.java.lambda;
+package testobject;
 
 public class Fruit {
     private String name;
