@@ -1,4 +1,4 @@
-package org.almansa.app.java.collection;
+package org.almansa.app.java.collection.list;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
