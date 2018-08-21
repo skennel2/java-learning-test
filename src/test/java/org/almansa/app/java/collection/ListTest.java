@@ -6,6 +6,7 @@ import java.util.AbstractCollection;
 import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.RandomAccess;
@@ -83,7 +84,7 @@ public class ListTest {
 
         // trimToSize로 수용량과 실제 크기를 동일하게 맞춰준다.
         assertEquals(3, vector.capacity());        
-    }
+    }    
     
     @Test
     public void ArrayList의_슈퍼타입() {

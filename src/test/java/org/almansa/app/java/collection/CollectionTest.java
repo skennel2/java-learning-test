@@ -4,10 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Stack;
 import java.util.Vector;
 
 import org.junit.Test;
@@ -68,6 +66,7 @@ public class CollectionTest {
     public void Collection_인터페이스의_같은_String_instance처리() {
         String item = "item";
 
+        // Collection은 기본적으로 중복을 허용한다.
         Collection<String> collection = new ArrayList<>();
         collection.add(item);
         collection.add(item);
@@ -85,7 +84,6 @@ public class CollectionTest {
     public void Collection인터페이스의_참조타입_참조무결성_확인() {
         Foo item = new Foo(1);
         Collection<Foo> collection = new ArrayList<>();
-        assertEquals(true, collection.isEmpty());
 
         // 아래 둘은 정확히 같은 주소값을 가지고 있을 것이다.
         collection.add(item);
@@ -94,6 +92,7 @@ public class CollectionTest {
         assertEquals(true, collection.contains(item));
         assertEquals(2, collection.size());
 
+        // 값 변경
         item.setValue(3);
 
         // 당연하지만 참조무결하지 않다.
@@ -105,23 +104,15 @@ public class CollectionTest {
         }
     }
 
-    @Test
-    public void Collection인터페이스_반복자로_접근해서_데이터_변경() {
-        Foo item = new Foo(1);
-        Collection<Foo> collection = new ArrayList<>();
-        assertEquals(true, collection.isEmpty());
+    @Test(expected = UnsupportedOperationException.class)
+    public void 수정불가_리스트만들기() {
+        Collection<String> collection = new ArrayList<>();
+        collection.add("black");
+        collection.add("green");
 
-        collection.add(item);
-        collection.add(item);
+        Collection<String> readOnlyCollection = Collections.unmodifiableCollection(collection);
 
-        for (Iterator<Foo> iterator = collection.iterator(); iterator.hasNext();) {
-            Foo foo = (Foo) iterator.next();
-            foo.setValue(3);
-        }
-
-        for (Iterator<Foo> iterator = collection.iterator(); iterator.hasNext();) {
-            Foo foo = (Foo) iterator.next();
-            assertEquals(3, foo.getValue());
-        }
+        // 수정은 지원하지 않는다.
+        readOnlyCollection.add("pink");
     }
 }
