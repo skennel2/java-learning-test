@@ -10,22 +10,22 @@ import org.junit.Test;
 
 public class StreamCollectTest {
 
-	@Test
-	public void 내장_Collector_toList() {
-		List<String> list = Arrays.asList("apple", "banana", "grape", "pair", "cherry");
+    @Test
+    public void 내장_Collector_toList() {
+        List<String> list = Arrays.asList("apple", "banana", "grape", "pair", "cherry");
 
-		List<String> fiveCharacterFruit = list.stream()
-				                              .filter(f -> f.length() == 5)
-				                              .collect(Collectors.toList());
-		assertEquals(2, fiveCharacterFruit.size());
-	}
+        List<String> fiveCharacterFruit = list.stream()
+                                              .filter(f -> f.length() == 5)
+                                              .collect(Collectors.toList());
+        assertEquals(2, fiveCharacterFruit.size());
+    }
 
-	@Test
-	public void 내장_Collector_averagingInt() {
-		List<String> list = Arrays.asList("apple", "banana", "grape", "pair");
+    @Test
+    public void 내장_Collector_averagingInt() {
+        List<String> list = Arrays.asList("apple", "banana", "grape", "pair");
 
-		Double fiveCharacterFruit = list.stream()
-				                        .collect(Collectors.averagingInt(f -> f.length()));
-		assertEquals(new Double(5), fiveCharacterFruit);
-	}
+        Double fiveCharacterFruit = list.stream()
+                                        .collect(Collectors.averagingInt(f -> f.length()));
+        assertEquals(new Double(5), fiveCharacterFruit);
+    }
 }

@@ -17,52 +17,48 @@ import org.almansa.app.java.jackson.Person;
 import org.junit.Test;
 
 public class StreamApiTest {
-	
-	private List<Person> getPersonList(){
-        List<Person> persons 
-        = Arrays.asList(new Person("nys", 30), new Person("adf", 12), new Person("vrf", 32), new Person("vvf", 32), new Person("wdf", 43), new Person("nys", 11));
+
+    private List<Person> getPersonList() {
+        List<Person> persons = Arrays.asList(new Person("nys", 30), new Person("adf", 12), new Person("vrf", 32),
+                new Person("vvf", 32), new Person("wdf", 43), new Person("nys", 11));
 
         return persons;
-	}
+    }
 
     @Test
     public void 스트림_다루기() {
         List<Person> persons = getPersonList();
-        
-        //Consumer 매개변수 값을 소비할 뿐 리턴하지 않는다. C#으로 치면 Action
-        Consumer<Person> printPerson = (p) -> 
-        {
-        	System.out.println(p.getName());     	
+
+        // Consumer 매개변수 값을 소비할 뿐 리턴하지 않는다. C#으로 치면 Action
+        Consumer<Person> printPerson = (p) -> {
+            System.out.println(p.getName());
         };
-        
+
         persons.stream()
-               .distinct()
+               .distinct() 
                .filter((p) -> p.getName().equals("nys2"))
                .findFirst()
                .ifPresent(printPerson);
 
         // age의 타입을 int -> Integer로 바꾸니 잘된다.
         // 스트림의 모든 요소가 다음조건을 만족하는가 ?
-        boolean isAllAgeOver30 = persons.stream().allMatch((p) -> p.getAge() > 30);
-        
+        boolean isAllAgeOver30 = persons.stream()
+                                        .allMatch((p) -> p.getAge() > 30);
+
         assertEquals(false, isAllAgeOver30);
 
-        persons.stream().filter((p) -> p.getAge() > 30)
-                        .findAny()
-                        .ifPresent((p) -> {
-                            System.out.println(p.getName());
-                        });
+        persons.stream().filter((p) -> p.getAge() > 30).findAny().ifPresent((p) -> {
+            System.out.println(p.getName());
+        });
 
-        // Map 연산 순회하며 본 타입을 특정타입으로 바꾼다. 
-        persons.stream()
-               .map((p) -> p.getAge())
-               .forEach((a) -> System.out.print(a.toString() + ", "));
+        // Map 연산 순회하며 본 타입을 특정타입으로 바꾼다.
+        persons.stream().map((p) -> p.getAge()).forEach((a) -> System.out.print(a.toString() + ", "));
     }
 
     @Test
     public void 빈스트림생성() {
         Stream<String> stringStream = Stream.empty();
-        
+
         long count = stringStream.count();
         assertEquals(0, count);
     }
@@ -71,7 +67,7 @@ public class StreamApiTest {
     public void of메소드로_스트림생성() {
         Stream<String> stream = Stream.of("asdf", "sadf", "sadf");
         long count = stream.count();
-        
+
         assertEquals(3, count);
     }
 
@@ -80,23 +76,23 @@ public class StreamApiTest {
         Collection<String> collectionForString = Arrays.asList("11", "22", "33", "44");
         long stringCollectionSize = collectionForString.size();
         assertEquals(4, stringCollectionSize);
-        
+
         Collection<Person> collectionsForPerson = Arrays.asList(new Person());
         long personCollectionSize = collectionsForPerson.size();
-        assertEquals(1, personCollectionSize);        
+        assertEquals(1, personCollectionSize);
     }
 
     @Test
     public void 스트림빌더() {
         Stream<String> stream = Stream.<String>builder().add("a").add("b").add("c").build();
-        
+
         assertEquals(3, stream.count());
     }
 
     @Test
-    public void generate로_무한스트림생성(){
+    public void generate로_무한스트림생성() {
         Stream<String> stream = Stream.generate(() -> "123456789").limit(5);
-        
+
         assertEquals(5, stream.count());
     }
 
@@ -111,7 +107,7 @@ public class StreamApiTest {
     @Test
     public void 기본자료형스트림생성() {
         IntStream intStream = IntStream.range(0, 10); // 0 ~ 9
-        
+
         assertEquals(45, intStream.sum());
 
     }
@@ -119,7 +115,7 @@ public class StreamApiTest {
     @Test
     public void 패턴으로_String에서_스트림생성() {
         Stream<String> stream = Pattern.compile(",").splitAsStream("a,b,c");
-        
+
         assertEquals(3, stream.count());
     }
 
@@ -129,19 +125,18 @@ public class StreamApiTest {
     @Test(expected = IllegalStateException.class)
     public void 스트림_재사용의_문제() {
         Stream<String> stream = Stream.of("acb", "bcd", "cde").filter((str) -> str.contains("b"));
-        
+
         Optional<String> optional = stream.findAny();
-        
+
         // IllegalStateException 발생 , 같은 스트림의 재사용은 주의해야한다.
-        // TODO 근데 왜일까..?        
+        // TODO 근데 왜일까..?
         Optional<String> optional2 = stream.findAny();
     }
 
     @Test
     public void 스트림_재사용의_문제의_해결() {
-        List<String> list = Stream.of("acb", "bcd", "cde")
-        		                  .filter((str) -> str.contains("b"))
-                                  .collect(Collectors.toList());
+        List<String> list = Stream.of("acb", "bcd", "cde").filter((str) -> str.contains("b"))
+                .collect(Collectors.toList());
 
         Optional<String> optional = list.stream().findAny();
         Optional<String> optional2 = list.stream().findAny();
