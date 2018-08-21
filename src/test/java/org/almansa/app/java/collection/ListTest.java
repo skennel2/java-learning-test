@@ -82,7 +82,7 @@ public class ListTest {
         vector.trimToSize();
 
         // trimToSize로 수용량과 실제 크기를 동일하게 맞춰준다.
-        assertEquals(3, vector.capacity());
+        assertEquals(3, vector.capacity());        
     }
     
     @Test
