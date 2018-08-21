@@ -9,12 +9,13 @@ public class Fruit {
 		super();
 	}
 
-	public Fruit(String name) {
+	public Fruit(String name) {		
 		super();
+		this.name = name;
 	}
 
 	public Fruit(String name, Long price) {
-		this.name = name;
+		this(name);
 		this.price = price;
 	}
 

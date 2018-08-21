@@ -57,12 +57,13 @@ public class ListTest {
     @Test
     public void ArrayList의_슈퍼타입() {
         ArrayList<String> arrayList = new ArrayList<>();
-
+        
         assertEquals(true, arrayList instanceof AbstractList);
         assertEquals(true, arrayList instanceof RandomAccess); // AbstractList 에서 구현
         assertEquals(true, arrayList instanceof List); // AbstractList에서 구현
         assertEquals(true, arrayList instanceof AbstractCollection); // AbstractList에서 상속
         assertEquals(true, arrayList instanceof Collection); // AbstractCollection에서 구현
+        assertEquals(true, arrayList instanceof Iterable);
     }
 
     @Test
@@ -71,7 +72,7 @@ public class ListTest {
         // 모든 개별의 엘리먼트에 접근하는데 동일한 시간이 걸림을 의미한다.
         // ArrayList는 요소들이 순차적으로 저장되어 있어도 순차적으로 액세스할 필요가 없다.
         RandomAccess arrayList = new ArrayList<>();
-    }
+    }   
 
     @Test
     public void LinkedList_속도확인() {
