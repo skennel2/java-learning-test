@@ -26,7 +26,7 @@ public class StringTest {
     }
 
     @Test
-    public void testStringIsImmutable() {
+    public void String의_immutable성() {
         String strLiteral1 = "1234";
         String concat = strLiteral1.concat("5678");
 
