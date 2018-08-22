@@ -43,11 +43,13 @@ public class StreamApiTest {
         // age의 타입을 int -> Integer로 바꾸니 잘된다.
         // 스트림의 모든 요소가 다음조건을 만족하는가 ?
         boolean isAllAgeOver30 = persons.stream()
-                                        .allMatch((p) -> p.getAge() > 30);
+                .allMatch((p) -> p.getAge() > 30);
 
         assertEquals(false, isAllAgeOver30);
 
-        persons.stream().filter((p) -> p.getAge() > 30).findAny().ifPresent((p) -> {
+        persons.stream().filter((p) -> p.getAge() > 30)
+            .findAny()
+            .ifPresent((p) -> {
             System.out.println(p.getName());
         });
 
