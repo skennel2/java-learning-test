@@ -94,7 +94,7 @@ public class ListTest {
         // # Vector는 매번 배열 크기를 2배로 늘리는데 반해 
         // ArrayList는 50%만 늘린다. 
         // 둘은 거의 동일하지만 Vector는 동기화 된다는 차이가 있다.
-        // 일반적으로 대부분의 자바 프로그래머는 명시 적으로 자체적으로 동기화 할 수 있기 때문에 Vector대신 ArrayList를 사용합니다.
+        // 일반적으로 대부분의 자바 프로그래머는 명시 적으로 자체적으로 동기화 할 수 있기 때문에 Vector대신 ArrayList를 사용한다.
     }
 
     @Test
