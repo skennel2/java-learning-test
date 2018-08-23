@@ -6,14 +6,22 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.OptionalInt;
+import java.util.stream.IntStream;
 
 import org.junit.Test;
 
 import testobject.Dish;
 
 public class PrimitiveStream {
+    
     @Test
-    public void 기본형_특화_스트림() {
+    public void 기본형_특화_스트림으로_변환() {
+        int intStream = IntStream.range(1, 100).filter((i) -> i % 2 == 0).sum();
+        assertEquals(intStream, 2450);
+    }
+    
+    @Test
+    public void 기본형_특화_스트림으로_매핑() {
         List<Dish> list = Arrays.asList(
                 new Dish("salad", 100, true), 
                 new Dish("cherry", 50, true),
