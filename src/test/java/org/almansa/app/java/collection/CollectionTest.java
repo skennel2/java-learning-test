@@ -10,6 +10,8 @@ import java.util.Vector;
 
 import org.junit.Test;
 
+import testobject.Foo;
+
 public class CollectionTest {
     @Test
     public void 컬렉션의박싱과_언박싱() {
@@ -82,9 +84,9 @@ public class CollectionTest {
 
     @Test
     public void Collection인터페이스의_참조타입_참조무결성_확인() {
-        Foo item = new Foo(1);
         Collection<Foo> collection = new ArrayList<>();
-
+        
+        Foo item = new Foo(1);
         // 아래 둘은 정확히 같은 주소값을 가지고 있을 것이다.
         collection.add(item);
         collection.add(item);

@@ -8,6 +8,8 @@ import java.util.function.Supplier;
 
 import org.junit.Test;
 
+import testobject.Fruit;
+
 public class ConstructorMethodReferenceLambdaTest {
     @Test
     public void 생성자_메소드레퍼런스_람다() {

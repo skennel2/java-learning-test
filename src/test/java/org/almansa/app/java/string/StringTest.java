@@ -10,23 +10,22 @@ public class StringTest {
      */
     @Test
     public void String리터럴과_인스턴스() {
+        // "" 로 생성한 문자열과 생성자로 생성된 문자열은 존재하는 메모리 공간이 다르다 .
+        // "" 로 생성한 문자열은 JVM내의 Method Area라는 곳에 존재하며, 공유된다.
+        // 생성자로 생성한 문자열은 힙에서 관리된다.
         String strInstance = new String("1234");
         String strLiteral1 = "1234";
         String strLiteral2 = "1234";
-
+        
         assertEquals(false, strInstance == strLiteral1);
         assertEquals(true, strInstance.equals(strLiteral1));
-
-        // equals은 값비교이므로 아래 테스트는 통과한다.
+        
         assertEquals(true, strLiteral2.equals(strLiteral1));
-
-        // 스프링 리터럴은 JVM 내의 스트링 리터럴 테이블 내의 인스턴스를 공유한다.
-        // 그러므로 아래 테스트는 통과한다.
         assertEquals(true, strLiteral2 == strLiteral1);
     }
 
     @Test
-    public void testStringIsImmutable() {
+    public void String의_immutable성() {
         String strLiteral1 = "1234";
         String concat = strLiteral1.concat("5678");
 
@@ -40,4 +39,13 @@ public class StringTest {
         // concat으로 리턴되는 스트링은 리터럴이 아니다. 그냥 새로운 인스턴스를 생성해서 리턴하는 것이다.
         assertEquals(false, concat2 == "1234567890");
     }
+    
+    @Test
+    public void String_Intern() {
+        String c = new String("abcd").intern();
+        String d = new String("abcd").intern();
+        assertEquals(true, c == d);  // 성공한다. 
+        assertEquals(true, c.equals(d));   
+    }
+    
 }

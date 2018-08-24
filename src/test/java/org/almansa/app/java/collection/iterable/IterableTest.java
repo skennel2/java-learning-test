@@ -19,9 +19,9 @@ public class IterableTest {
         // Iterator를 반환하는 iterator()메소드를 노출한다.
         Iterator<String> iterator = iterable.iterator();
         String item1 = iterator.next();
-        assertEquals("apple", item1);
-
         String item2 = iterator.next();
+        
+        assertEquals("apple", item1);
         assertEquals("banana", item2);
     }
 }

@@ -9,6 +9,8 @@ import org.junit.Test;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 
+import testobject.Person;
+
 /**
  * https://www.lesstif.com/pages/viewpage.action?pageId=24445183
  * 
