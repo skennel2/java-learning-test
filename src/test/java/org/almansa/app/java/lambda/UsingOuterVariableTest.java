@@ -21,4 +21,24 @@ public class UsingOuterVariableTest {
         boolean isEqual = isIgnoreCaseEquals.test("banana");
         assertEquals(true, isEqual);
     }
+    
+    @Test
+    public void 익명_인스턴스의_경우에도_마찬가지() {
+        String fruit = "banana";
+        Predicate<String> isIgnoreCaseEquals = new Predicate<String>() {
+            
+            @Override
+            public boolean test(String t) {
+                return t.equals(fruit);
+            }
+        };
+
+        // 아래 구문의 주석을 풀면 컴파일에러
+        // 람다의 바디에서 사용되는 외부 변수는 변경될 수 없다.
+
+        //fruit = "apple";
+
+        boolean isEqual = isIgnoreCaseEquals.test("banana");
+        assertEquals(true, isEqual);
+    }
 }
