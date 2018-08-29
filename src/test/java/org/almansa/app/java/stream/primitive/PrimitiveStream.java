@@ -15,7 +15,7 @@ import testobject.Dish;
 public class PrimitiveStream {
     
     @Test
-    public void 기본형_특화_스트림으로_변환() {
+    public void 기본형_특화_스트림생성() {
         int intStream = IntStream.range(1, 100).filter((i) -> i % 2 == 0).sum();
         assertEquals(intStream, 2450);
     }
@@ -27,13 +27,21 @@ public class PrimitiveStream {
                 new Dish("cherry", 50, true),
                 new Dish("chicken", 1200, false),
                 new Dish("tomato pasta", 450, false));
-
+        
+        // 기본 특화형 스트림을 사용하지 않았을때. 
         int vegetarianMenuCalories = list.stream()
+                .filter(Dish::isVegetarian)
+                .map(Dish::getCalories)
+                .reduce(0, Integer::sum);
+        
+        // 기본 특화형 스트림을 사용했을 때.
+        int vegetarianMenuCaloriesUsingPrimitiveStream = list.stream()
                 .filter(Dish::isVegetarian)
                 .mapToInt(Dish::getCalories) // IntStream 이라는 기본형 특화 스트림을 리턴한다.
                 .sum(); // sum, average등의 함수를 제공한다.
 
         assertEquals(150, vegetarianMenuCalories);
+        assertEquals(150, vegetarianMenuCaloriesUsingPrimitiveStream);
     }
     
     @Test
