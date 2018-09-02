@@ -52,6 +52,38 @@ public class StreamCollectTest {
     }
     
     @Test
+    public void 내장_Collector_grouping_and_summing() {
+        List<Dish> list = TestObjectFactory.getDishList();
+        Map<Boolean, Integer> map = list.stream().collect(Collectors.groupingBy(
+                Dish::isVegetarian,
+                Collectors.summingInt(Dish::getCalories)));
+        
+        map.keySet().forEach((isVegetarian)->{
+            if(isVegetarian) {
+                System.out.println("Vegetarian");
+            }else {
+                System.out.println("Not Vegetarian");
+            }
+            System.out.println(map.get(isVegetarian));
+        });
+    }
+    
+    @Test
+    public void 내장_Collector_toMap() {
+        List<Dish> list = TestObjectFactory.getDishList();
+        Map<String, Integer> dishCaloriesByName =
+                list.stream()
+                .collect(Collectors.toMap(Dish::getName, (dish)->dish.getCalories()));
+        
+        dishCaloriesByName.keySet()
+            .stream()
+            .forEach((dishName)->{
+                Integer calrories = dishCaloriesByName.get(dishName);
+                System.out.println(calrories);
+            });
+    }
+    
+    @Test
     public void 내장_Collector_joining() {
         List<Dish> list = TestObjectFactory.getDishList();
         String nameJoining = list.stream().map(Dish::getName)
@@ -69,4 +101,5 @@ public class StreamCollectTest {
             System.out.println(a.getName());
         });       
     }
+    
 }
