@@ -50,7 +50,7 @@ public class PrimitiveStream {
         
         OptionalInt vegetarianMenuCalories = list.stream()
                 .filter(Dish::isVegetarian)
-                .mapToInt(Dish::getCalories) 
+                .mapToInt(Dish::getCalories)
                 .max(); // OptionalInt를 리턴한다.
         
         // 요소가 비어있는 기본형스트림에 대해  max() 함수가 기본값 0을 리턴했다면

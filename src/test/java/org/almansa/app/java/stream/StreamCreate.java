@@ -20,17 +20,19 @@ public class StreamCreate {
     @Test
     public void of키워드() {
         Stream<String> strings = Stream.of("keyboard", "mouse", "moniter");
-        strings.map((s) -> s.toUpperCase()).forEach((s) -> {
-            System.out.println(s);
-        });
+        strings.map((s) -> s.toUpperCase())
+        	.forEach((s) -> {
+        		System.out.println(s);
+        	});
     }
 
     @Test
     public void 배열을스트림으로만들기() {
         String[] strings = { "keyboard", "mouse", "moniter" };
-        String reducing = Arrays.stream(strings).reduce("", (a, b)->{
-            return a.concat(", ").concat(b);
-        });
+        String reducing = Arrays.stream(strings)
+        		.reduce("", (a, b)->{
+        			return a.concat(", ").concat(b);
+        		});
         
         System.out.println(reducing);
     }

@@ -22,6 +22,7 @@ public class CollectAndReduce {
                         Dish::getCalories, // 매핑함수
                         Integer::sum)); // 집계함수
         
+        // reduce로 합계 구현
         int calorieSumUsingReduce = list.stream()
                 .map(Dish::getCalories)
                 .reduce(0, Integer::sum);

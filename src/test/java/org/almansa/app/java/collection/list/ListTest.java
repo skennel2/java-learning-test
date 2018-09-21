@@ -200,4 +200,26 @@ public class ListTest {
         assertEquals(3, list.size());
         assertEquals(false, list.contains("a"));
     }   
+    
+    @Test
+    public void list의_동등성() {
+		String str1 = new String("1234");
+		String str2 = new String("1234");
+
+		List<String> arrayList1 = new ArrayList<>();
+		arrayList1.add(str1);
+		
+		List<String> arrayList2 = new ArrayList<>();
+		arrayList2.add(str2);
+		
+		assertEquals(arrayList1, arrayList2);
+		
+		List<String> linkedList1 = new LinkedList<>();
+		linkedList1.add(str1);
+		
+		List<String> linkedList2 = new LinkedList<>();
+		linkedList2.add(str2);
+		
+		assertEquals(linkedList1, linkedList2);		
+    }
 }

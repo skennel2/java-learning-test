@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 import org.junit.Test;
 
 /**
- * flatMap은 스트림의 각값을 다른 스트림으로 부꾼후 모든 스트름을 하나로 합친다. 
+ * flatMap은 스트림의 각 값을 다른 스트림으로 바꾼후 모든 스트름을 하나로 합친다. 
  * @author skenn
  *
  */
