@@ -21,6 +21,8 @@ public class JacksonTest {
     @Test
     public void Json으로_객체직렬화_역직렬화() throws IOException {
         Person person = new Person();
+        person.setName("NaYunSu");
+        person.setAge(new Integer(32));
 
         // Object를 Json String으로 직렬화
         String personJson = new ObjectMapper().writeValueAsString(person);
@@ -34,19 +36,16 @@ public class JacksonTest {
 
     @Test
     public void Json역직렬화() {
-        String json = "{\"name\":\"e40\",\"age\":43}";
+        String json = "{\"name\":\"NaYunSu\",\"age\":32}";
 
         ObjectMapper mapper = new ObjectMapper();
-        ObjectReader reader = mapper.reader();
-        reader.forType(Person.class);
-
         Person person = null;
         try {
-            person = reader.readValue(json);
+            person = mapper.readValue(json, Person.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        assertEquals("Bob", person.getName());
+        assertEquals("NaYunSu", person.getName());
     }
 }
