@@ -1,4 +1,4 @@
-package org.almansa.app.java.jackson;
+package org.almansa.app.java.library.jackson;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
