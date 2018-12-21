@@ -26,7 +26,7 @@ public class EhCacheTest {
 	}
 
 	@Test
-	public void ehcache_캐시설정2() {
+	public void ehcache_heapSize초과() {
 
 		try (CacheManager cacheManager = CacheManagerBuilder.newCacheManagerBuilder().build()) {
 			cacheManager.init();
@@ -51,6 +51,26 @@ public class EhCacheTest {
 				String value = item.getValue();
 				System.out.println(value);
 			});
+		}
+	}
+
+	@Test
+	public void ehcache_cacheManager로_Cache개체_가져오기() {
+
+		try (CacheManager cacheManager = CacheManagerBuilder.newCacheManagerBuilder().build()) {		
+			cacheManager.init();
+				
+			// 캐시 생성
+			Cache<Long, String> myCache = cacheManager.createCache("myCache", CacheConfigurationBuilder
+					.newCacheConfigurationBuilder(Long.class, String.class, ResourcePoolsBuilder.heap(10)));
+
+			myCache.put(1L, "123");
+
+			// 캐시 가져오기
+			Cache<Long, String> myCacheGet = cacheManager.getCache("myCache", Long.class, String.class);
+			String value = myCacheGet.get(1L);
+
+			assertEquals("123", value);
 		}
 	}
 }
