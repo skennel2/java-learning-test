@@ -9,7 +9,7 @@ import java.util.Set;
 
 import org.junit.Test;
 
-public class MapTest {
+public class MapInterfaceTest {
 
 	@Test
 	public void Map인터페이스() {

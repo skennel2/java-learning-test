@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-public class IterableTest {
+public class IterableInterfaceTest {
     @Test
     public void 요소를_차례대로_반환하는_Iterable() {
         List<String> list = Arrays.asList("apple", "banana", "grape", "pair", "cherry");

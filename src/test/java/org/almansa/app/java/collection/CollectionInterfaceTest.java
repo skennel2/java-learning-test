@@ -12,7 +12,7 @@ import org.junit.Test;
 
 import testobject.Foo;
 
-public class CollectionTest {
+public class CollectionInterfaceTest {
     @Test
     public void 컬렉션의박싱과_언박싱() {
         Vector vector = new Vector();

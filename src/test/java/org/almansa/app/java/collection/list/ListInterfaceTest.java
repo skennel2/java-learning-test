@@ -22,7 +22,7 @@ import org.junit.Test;
  * 참고한 자료
  * https://www.programcreek.com/2013/03/arraylist-vs-linkedlist-vs-vector/
  */
-public class ListTest {
+public class ListInterfaceTest {
     @Test
     public void List인터페이스의_구현체종류() {
         // 요소들의 순서를 저장하여 색인(Index)를 사용하여 특정 위치에 요소를 삽입하거나 접근할 수 있으며 중복 요소 허용

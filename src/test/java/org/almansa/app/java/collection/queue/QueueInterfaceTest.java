@@ -12,7 +12,7 @@ import java.util.concurrent.SynchronousQueue;
 
 import org.junit.Test;
 
-public class QueueTest {
+public class QueueInterfaceTest {
         
     @Test
     public void BlockingQueue인터페이스의_구현체종류() {
