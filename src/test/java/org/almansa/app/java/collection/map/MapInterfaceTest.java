@@ -2,17 +2,19 @@ package org.almansa.app.java.collection.map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedMap;
 
 import org.junit.Test;
 
 public class MapInterfaceTest {
 
 	@Test
-	public void Map인터페이스() {
+	public void Map인터페이스_특성() {
 		// 키를 값에 매핑하는 객체. 
 		// 중복 키가 포함될 수 없다. 
 		// 각 키는 최대 하나의 값으로만 매핑할 수 있다. 
@@ -22,6 +24,14 @@ public class MapInterfaceTest {
 		String value = map.get("key");
 		
 		assertEquals("value", value);
+	}
+	
+	@Test
+	public void Map인터페이스_계층() {
+		Map<String, String> map = new HashMap<>();		
+		
+		// Map은 Iterable, Collection의 하위 타입이 아니다. 
+		//Collection collection = map;	
 	}
 	
 	@Test
@@ -80,4 +90,6 @@ public class MapInterfaceTest {
 		// put과 다르게 값을 덮어쓰지 않았다. 
 		assertEquals("value2", map.get("key2"));
 	}
+	
+
 }
