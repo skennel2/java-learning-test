@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Vector;
 
-import org.junit.Test;
-
 public class SpeedCompare {
     //@Test
     public void ArrayList의_초기사이즈를_지정해주었을때_속도비교() {

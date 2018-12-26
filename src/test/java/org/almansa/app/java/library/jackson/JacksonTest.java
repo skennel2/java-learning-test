@@ -7,7 +7,6 @@ import java.io.IOException;
 import org.junit.Test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectReader;
 
 import testobject.Person;
 
