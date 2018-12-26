@@ -11,7 +11,7 @@ import org.junit.Test;
 
 import testobject.Dish;
 
-public class SortedMapInterface {
+public class SortedMapInterfaceTest {
 	@Test
 	public void SortedMap인터페이스_특성() {
 		SortedMap<Integer, String> map = new TreeMap<>();
