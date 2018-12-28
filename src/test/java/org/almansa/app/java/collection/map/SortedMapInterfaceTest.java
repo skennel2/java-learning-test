@@ -75,9 +75,35 @@ public class SortedMapInterfaceTest {
 	}
 
 	@Test
+	public void SortedMap인터페이스_tailMap() {
+		SortedMap<Integer, String> map = new TreeMap<>();
+		map.put(new Integer(1), "1");
+		map.put(new Integer(2), "2");
+		map.put(new Integer(3), "3");
+		map.put(new Integer(4), "4");
+		map.put(new Integer(5), "5");
+		map.put(new Integer(6), "6");
+
+		// 4번부터 마지막 키값까지의 SortMap을 리턴한다.
+		// 나머지 특성은 subMap과 같다.
+		SortedMap<Integer, String> subMap = map.tailMap(new Integer(4));
+
+		Iterator<Integer> keyset = subMap.keySet().iterator();
+
+		Integer firstKey = keyset.next();
+		assertEquals(new Integer(4), firstKey);
+
+		Integer nextKey = keyset.next();
+		assertEquals(new Integer(5), nextKey);
+
+		Integer lastKey = keyset.next();
+		assertEquals(new Integer(6), lastKey);
+	}
+
+	@Test
 	public void SortedMap인터페이스_생성자() {
 		// 일반적인 목적의 SortedMap의 구현체는4가지의 생성자를 구현해야한다.(파라미터없는 생성자 포함)
-		// 다음은 그 중 하나로 Comparator를 받는 것으로 key에 대한 정렬의 기준이 된다.
+		// 다음은 그 중 하나로 Comparator를 인자로 받는 것으로 key에 대한 정렬의 기준이 된다.
 		// 다음 맵은 Dish메소드의 Calorie로 크기를 비교하게 된다.
 		SortedMap<Dish, String> map = new TreeMap<>(new Comparator<Dish>() {
 			@Override
