@@ -2,12 +2,13 @@ package org.almansa.app.java.date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
 import org.junit.Test;
 
-public class DateAndLocalDateTimeTest {
+public class DateAndLocalDateTest {
 	@Test
 	public void Date클래스는_가변클래스() {
 		DateWrapper wrapper = new DateWrapper(new Date(2019, 1, 22));
@@ -20,22 +21,22 @@ public class DateAndLocalDateTimeTest {
 
 	@Test
 	public void LocalDateTime은_불변클래스() {
-		LocalDateWrapper localDateWrapper = new LocalDateWrapper(LocalDateTime.of(2019, 1, 22, 0, 0));
+		LocalDateWrapper localDateWrapper = new LocalDateWrapper(LocalDate.of(2019, 1, 22));
 		
 		// 여느 Immutable 클래스들 처럼 setter를 노출하지 않고 새로운 LocalDateTime를 반환한다.
-		LocalDateTime localDateTime = localDateWrapper.getDate().plusMonths(1);
+		LocalDate localDate = localDateWrapper.getDate().plusMonths(1);
 		
 		assertEquals(1, localDateWrapper.getDate().getMonth().getValue());
 	}
 
 	public class LocalDateWrapper {
-		private LocalDateTime date;
+		private LocalDate date;
 
-		public LocalDateWrapper(LocalDateTime date) {
+		public LocalDateWrapper(LocalDate date) {
 			this.date = date;
 		}
 
-		public LocalDateTime getDate() {
+		public LocalDate getDate() {
 			return date;
 		}
 	}
