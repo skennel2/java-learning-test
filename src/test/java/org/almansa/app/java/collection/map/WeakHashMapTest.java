@@ -11,15 +11,16 @@ public class WeakHashMapTest {
 
 	@Test
 	public void weakHashMap() {
-		WeakHashMap<WeakReference<String>, String> weakHashMap = new WeakHashMap<>();
+		WeakHashMap<String, String> weakHashMap = new WeakHashMap<>();
 		
-		String key1S = new String("key1");
-		WeakReference<String> key1 = new WeakReference<String>(key1S);
-		
+		String key1 = new String("key1");
+
 		weakHashMap.put(key1, "entry1");
 		
-		key1 = null;
-		
+		// WeakHashMap에 넘긴 키값 인스턴스를 가비지컬렉터 대상으로 만든다.
+		key1 = new String("key2");
+				
+		// 가비지컬렉터 대상이 된 키값의 KeyValuePair가 제거 되었다. 
 		assertEquals(false, weakHashMap.containsKey(key1));
 	}
 }
