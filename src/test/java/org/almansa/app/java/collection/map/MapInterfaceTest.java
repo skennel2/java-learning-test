@@ -12,6 +12,12 @@ import org.junit.Test;
 public class MapInterfaceTest {
 
 	@Test
+	public void Map인터페이스는_Collection의_하위형이아니다() {
+		// Map의 개념은 Collection의 구체적인 타입이라기보단
+		// Collcetion을 포함하고 있는 자료구조로 생각하는 것이 맞다. 
+	}
+	
+	@Test
 	public void Map인터페이스_특성() {
 		// 키를 값에 매핑하는 객체.
 		// 중복 키가 포함될 수 없다.
