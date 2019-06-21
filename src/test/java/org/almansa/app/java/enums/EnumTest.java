@@ -24,6 +24,5 @@ public class EnumTest {
 	public void Enum다뤄보기() {
 		YesNoCode yes = YesNoCode.YES;		
 		assertEquals("Y", yes.getCode());
-	}
-	
+	}	
 }
