@@ -11,12 +11,12 @@ import org.junit.Test;
 
 public class JsoupTest {
 	@Test
-	public void jsoup_url로_문서가져오기() {
+	public void jsoup_url로_문서가져오기() throws IOException {
 		try {
 			Document document = Jsoup.connect("https://jsoup.org/").get();
 			String title = document.title();
 		} catch (IOException e) {
-			e.printStackTrace();
+			throw e;
 		}
 	}
 
