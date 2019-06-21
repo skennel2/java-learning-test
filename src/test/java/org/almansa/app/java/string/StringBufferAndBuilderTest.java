@@ -10,7 +10,7 @@ import org.junit.Test;
 public class StringBufferAndBuilderTest {
 	@Test
 	public void appendBoolean() {
-		StringBuffer appendBoolean = new StringBuffer(300);
+		StringBuffer appendBoolean = new StringBuffer();
 		appendBoolean.append(true);
 				
 		assertEquals("true", String.valueOf(true));
