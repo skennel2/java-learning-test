@@ -3,7 +3,6 @@ package org.almansa.app.java.date;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 import org.junit.Test;
