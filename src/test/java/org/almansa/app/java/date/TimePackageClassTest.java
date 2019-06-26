@@ -7,8 +7,11 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Period;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
+import java.util.Calendar;
+import java.util.Date;
 
 import org.junit.Test;
 
@@ -87,5 +90,17 @@ public class TimePackageClassTest {
 		String str = localDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 		
 		assertEquals("2019-06-26", str);
+	}
+	
+	@Test
+	public void Date_to_LocalDate() {	
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(2019, 4, 15); // Month는 0 부터 ㅅㅂ
+
+		Date now = calendar.getTime();
+		LocalDate converted = now.toInstant().atZone(ZoneId.systemDefault())
+	      .toLocalDate();
+		
+		assertEquals(LocalDate.of(2019, 5, 15), converted);
 	}
 }
