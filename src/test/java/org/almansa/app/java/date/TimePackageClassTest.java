@@ -97,7 +97,7 @@ public class TimePackageClassTest {
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(2019, 4, 15); // Month는 0 부터 ㅅㅂ
 
-		Date now = calendar.getTime();
+		Date now = calendar.getTime();		
 		LocalDate converted = now.toInstant().atZone(ZoneId.systemDefault())
 	      .toLocalDate();
 		
