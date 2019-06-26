@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
 
 import org.junit.Test;
@@ -61,4 +62,11 @@ public class TimePackageClassTest {
 		LocalDate localDate = LocalDate.of(2019, 2, 32);				
 	}
 
+	@Test
+	public void 문자열로부터_파싱하기() {
+		String source = "20190626";
+		
+		LocalDate localDate = LocalDate.parse(source, DateTimeFormatter.ofPattern("yyyyMMdd"));		
+		assertEquals(LocalDate.of(2019, 6, 26), localDate);
+	}
 }

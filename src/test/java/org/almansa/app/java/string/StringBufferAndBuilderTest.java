@@ -39,7 +39,7 @@ public class StringBufferAndBuilderTest {
 		buffer.append(data);
 		assertEquals(70, buffer.capacity());
 	}
-
+	
 	@Test
 	public void StringBuilder멀티스레드테스트() throws InterruptedException {
 		StringBuilder buffer = new StringBuilder();
