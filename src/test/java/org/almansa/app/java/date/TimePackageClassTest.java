@@ -49,10 +49,12 @@ public class TimePackageClassTest {
 	
 	@Test
 	public void 날짜조정하기() {
+		// 해당 달의 마지막날 가져오기
 		LocalDate localDate = LocalDate.of(2019, 2, 15);		
 		localDate = localDate.with(TemporalAdjusters.lastDayOfMonth());		
 		assertEquals(LocalDate.of(2019, 2, 28), localDate);
 		
+		// 해당 날짜의 달만 바꾸기, 일자로 마지막날에 맞춰서 자동조정됨 
 		localDate = LocalDate.of(2019, 3, 31).withMonth(2);
 		assertEquals(LocalDate.of(2019,  2, 28), localDate);
 	}
@@ -68,5 +70,22 @@ public class TimePackageClassTest {
 		
 		LocalDate localDate = LocalDate.parse(source, DateTimeFormatter.ofPattern("yyyyMMdd"));		
 		assertEquals(LocalDate.of(2019, 6, 26), localDate);
+	}
+	
+	@Test
+	public void 문자열로부터_파싱하기2() {
+		String source = "2019-06-26";
+		
+		LocalDate localDate = LocalDate.parse(source, DateTimeFormatter.ofPattern("yyyy-MM-dd"));		
+		assertEquals(LocalDate.of(2019, 6, 26), localDate);
+	}
+	
+	@Test
+	public void 문자열로_리턴하기() {	
+		LocalDate localDate = LocalDate.of(2019, 6, 26);
+		
+		String str = localDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+		
+		assertEquals("2019-06-26", str);
 	}
 }
