@@ -1,5 +1,6 @@
 package org.almansa.app.java.collection.list;
 
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.AbstractCollection;
@@ -137,7 +138,7 @@ public class ListInterfaceTest {
 
         Iterator<String> a = arrayList.iterator();
         // 문제 코드 
-        // iterator가 생성된 이후 리스트가 구조적으로 변경되면 빠르게 예외를 던저버린다.  
+        // iterator가 생성된 이후 리스트가 구조적으로 변경되면 바로 예외를 던저버린다.  
         arrayList.add("B"); 
 
         // ConcurrentModificationException 발생 
@@ -177,6 +178,8 @@ public class ListInterfaceTest {
     @Test(expected = ConcurrentModificationException.class)
     public void 잘못된_특정요소_제거2() {
         ArrayList<String> list = new ArrayList<String>(Arrays.asList("a", "b", "c", "d"));        
+        
+        // 기본적으로 foreach 구문은 Iterator를 활용한다.
         for (String s : list) {
             if (s.equals("a")) {
                 list.remove(s);
@@ -212,7 +215,11 @@ public class ListInterfaceTest {
 		List<String> arrayList2 = new ArrayList<>();
 		arrayList2.add(str2);
 		
+		// 두 요소들이 가지고 있는 아이템의 순서와 요소가 equals()를 만족한다면 같다고 보는듯하다.
 		assertEquals(arrayList1, arrayList2);
+				
+		arrayList2.remove(0);		
+		assertNotEquals(arrayList1, arrayList2);
 		
 		List<String> linkedList1 = new LinkedList<>();
 		linkedList1.add(str1);
