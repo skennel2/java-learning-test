@@ -38,17 +38,20 @@ public class CollectionInterfaceTest {
 		Iterable<String> iterable = collection;
 
 		Iterator<String> iterator = iterable.iterator();
-		String next = iterator.next();
-
-		assertEquals("Hello", next);
+		String next1 = iterator.next();
+		String next2 = iterator.next();
+		
+		assertEquals("Hello", next1);
+		assertEquals("Hello", next2);
 	}
 
 	@Test
 	public void Collection의_메소드() {
 		Collection<String> collection = new ArrayList<>();
 		collection.add("Hello"); // 요소추가
+		collection.add("World"); // 요소추가
 		collection.remove("Hello"); // 요소제거
-		assertEquals(0, collection.size());
+		assertEquals(1, collection.size());
 	}
 
 	@Test
@@ -79,7 +82,14 @@ public class CollectionInterfaceTest {
 		String next1 = collection.iterator().next();
 		String next2 = collection.iterator().next();
 
+		// 콜렉션에 같은 참조값을 여러개 담고 있다.
 		assertEquals(true, next1 == next2);
+		
+		// remove시 해당하는 모든 엘리먼트를 제거하지 않는다. 
+		// 검색되는 첫번째것만 제거하는듯 하다.
+		collection.remove(item);
+		
+		assertEquals(1, collection.size());
 	}
 
 	@Test

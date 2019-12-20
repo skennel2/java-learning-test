@@ -15,7 +15,7 @@ public class ObjectCompareTest {
         ShoppingCart cart2 = new ShoppingCart(Arrays.asList("egg", "butter"));
         
         // 쇼핑카트라는 것만 보고서는 직관적으로 물품 갯수로 비교한다는 걸 알 수 없을 것이다.
-        // 그런 의미에서 크기, 질량, 수량등을 나타내는 유형이 아니면  Compareble 구현에는 한계가 있어보인다.  
+        // 그런 의미에서 크기, 질량, 수량등을 나타내는 타입이 아니면  Compareble 구현에는 한계가 있어보인다.  
         int compareResult = cart1.compareTo(cart2);
         
         assertEquals(1, compareResult);

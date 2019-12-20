@@ -145,18 +145,18 @@ public class ListInterfaceTest {
         String value = a.next();              
     }
     
-    @Test()
+    @Test
     public void iterator의_동시변경_구조적_변경에_대해() {
 
         List<String> arrayList = new ArrayList<>();
         arrayList.add("A");
 
-        Iterator<String> a = arrayList.iterator();
+        Iterator<String> iterator = arrayList.iterator();
         // 이작업은  구조적 변경이 아니기 때문에 ConcurrentModificationException 예외가 던져지지 않는다.
         arrayList.set(0, "B"); 
         
-        String value = a.next();
-        a.remove();
+        String value = iterator.next();
+        iterator.remove();
         
         assertEquals("B", value);
         assertEquals(0, arrayList.size());
