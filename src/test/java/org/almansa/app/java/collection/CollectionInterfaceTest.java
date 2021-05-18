@@ -42,7 +42,7 @@ public class CollectionInterfaceTest {
 		String next2 = iterator.next();
 		
 		assertEquals("Hello", next1);
-		assertEquals("Hello", next2);
+		assertEquals("World", next2);
 	}
 
 	@Test
