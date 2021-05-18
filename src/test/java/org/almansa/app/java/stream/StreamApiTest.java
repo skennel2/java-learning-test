@@ -101,7 +101,7 @@ public class StreamApiTest {
     @Test
     public void iterate로_스트림생성() {
         // iterate는 무한 스트림을 생성한다.
-        Stream<Integer> stream = Stream.iterate(10, n -> n + 1);
+        Stream<Integer> stream = Stream.iterate(10, n -> n + 1).limit(10);
 
         assertEquals(10, stream.count());
     }
