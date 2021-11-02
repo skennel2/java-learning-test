@@ -1,6 +1,6 @@
 package org.almansa.app.java.lambda;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 import java.util.function.BiFunction;
 import java.util.function.Function;

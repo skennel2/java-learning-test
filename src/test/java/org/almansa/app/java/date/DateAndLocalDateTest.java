@@ -1,6 +1,6 @@
 package org.almansa.app.java.date;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 import java.time.LocalDate;
 import java.util.Date;

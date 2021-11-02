@@ -1,6 +1,6 @@
 package org.almansa.app.java.stream.reduce;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 import java.util.List;

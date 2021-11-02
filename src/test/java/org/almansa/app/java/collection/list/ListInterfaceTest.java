@@ -1,7 +1,7 @@
 package org.almansa.app.java.collection.list;
 
 import static org.junit.Assert.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 import java.util.AbstractCollection;
 import java.util.AbstractList;

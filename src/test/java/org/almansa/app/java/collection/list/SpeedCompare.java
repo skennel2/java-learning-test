@@ -1,6 +1,6 @@
 package org.almansa.app.java.collection.list;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

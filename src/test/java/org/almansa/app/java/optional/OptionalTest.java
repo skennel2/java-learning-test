@@ -1,6 +1,6 @@
 package org.almansa.app.java.optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 import java.util.NoSuchElementException;
 import java.util.Optional;
